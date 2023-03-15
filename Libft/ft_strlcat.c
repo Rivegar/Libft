@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:26:44 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/15 15:41:53 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/15 10:21:02 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/15 13:48:16 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t len)
+size_t	ft_strlcat(char *dest, const char *src, size_t dsize)
 {
-	ft_memset(str, 0, len);
-}
+	size_t	altdest;
+	size_t	altsrc;
+	size_t	i;
 
-#include <stdio.h>
-int	main(void)
-{
-	char	str[] = "Hello";
-	ft_bzero(str, 3);
-	printf("%s", str);
-	return (0);
+	altdest = ft_strlen(dest);
+	altsrc = ft_strlen(src);
+	i = 0;
+	if (dsize <= altdest)
+	{
+		return (altsrc + dsize);
+	}
+	while (src[i] && (i + altdest) < (dsize - 1))
+	{
+		dest[altdest + i] = src[i];
+		i++;
+	}
+	dest[altdest + i] = '\0';
+	return (altdest + altsrc);
 }

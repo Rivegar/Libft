@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:26:44 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/15 15:41:53 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/15 14:32:22 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/15 15:21:48 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *str, size_t len)
+int	ft_toupper(int c)
 {
-	ft_memset(str, 0, len);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	char	str[] = "Hello";
-	ft_bzero(str, 3);
-	printf("%s", str);
-	return (0);
+	if (c >= 'a' && c <= 'z')
+	{
+		c -= 32;
+	}
+	return (c);
 }

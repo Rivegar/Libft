@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+         #
+#    By: arivero- <arivero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 10:01:21 by arivero-          #+#    #+#              #
-#    Updated: 2023/03/13 13:04:45 by arivero-         ###   ########.fr        #
+#    Updated: 2023/03/15 15:16:43 by arivero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c
+SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c
 OBJ = $(SRC:%.c=%.o)
 
 INCLUDE = libft.h

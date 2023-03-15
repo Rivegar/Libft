@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:26:44 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/15 15:41:53 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/15 09:51:45 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/15 11:06:08 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t len)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dsize)
 {
-	ft_memset(str, 0, len);
-}
+	size_t	i;
 
-#include <stdio.h>
-int	main(void)
-{
-	char	str[] = "Hello";
-	ft_bzero(str, 3);
-	printf("%s", str);
-	return (0);
+	i = 0;
+	if (dsize > 0)
+	{
+		while (src[i] && i < (dsize - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (ft_strlen(src));
 }
