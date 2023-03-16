@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 12:33:49 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/16 11:39:18 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/16 10:19:32 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/16 11:32:51 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strrchr(const char *str, int c)
 {
-	unsigned char	*tempdest;
-	unsigned char	*tempsrc;
+	size_t	i;
+	char	*altstr;
 
-	tempdest = (unsigned char *) dest;
-	tempsrc = (unsigned char *) src;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	if (dest < src)
-		return (ft_memcpy(dest, src, n));
-	else
-		while (n--)
-			tempdest[n] = tempsrc[n];
-	return (dest);
+	altstr = (char *)str;
+	i = ft_strlen(str);
+	if (c == '\0')
+	{
+		return (&altstr[i]);
+	}
+	while (i != 0)
+	{
+		if (altstr[i] == (char)c)
+		{
+			return (&altstr[i]);
+		}
+		i--;
+	}
+	if (str[0] == (char)c)
+	{
+		return (altstr);
+	}
+	return (0);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:26:44 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/16 09:13:03 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/16 09:25:53 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/16 10:05:33 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t len)
+char	*ft_strchr(const char *str, int c)
 {
-	ft_memset(str, 0, len);
-}
+	char	altc;
+	char	*altstr;
+	size_t	i;
 
-/*#include <stdio.h>
-int	main(void)
-{
-	char	str[] = "Hello";
-	ft_bzero(str, 3);
-	printf("%s", str);
-	return (0);
-}*/
+	altc = c;
+	altstr = (char *)str;
+	i = 0;
+	while (altstr[i] != altc)
+	{
+		if (altstr[i] == '\0')
+		{
+			return (NULL);
+		}
+		i++;
+	}
+	return (&altstr[i]);
+}

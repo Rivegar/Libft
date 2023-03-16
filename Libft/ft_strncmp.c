@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 12:33:49 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/16 11:39:18 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/16 12:39:51 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/16 13:29:11 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	unsigned char	*tempdest;
-	unsigned char	*tempsrc;
+	size_t	i;
 
-	tempdest = (unsigned char *) dest;
-	tempsrc = (unsigned char *) src;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	if (dest < src)
-		return (ft_memcpy(dest, src, n));
-	else
-		while (n--)
-			tempdest[n] = tempsrc[n];
-	return (dest);
+	i = 0;
+	while ((str1[i] != '\0' || str2[i] != '\0') && i < n)
+	{
+		if (str1[i] != str2[i])
+		{
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+		}
+		i++;
+	}
+	return (0);
 }
