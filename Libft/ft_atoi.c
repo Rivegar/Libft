@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:01:01 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/17 15:05:34 by arivero-         ###   ########.fr       */
+/*   Created: 2023/03/17 11:05:21 by arivero-          #+#    #+#             */
+/*   Updated: 2023/03/17 11:30:38 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+int	ft_atoi(const char *str)
 {
-	unsigned char	*altstr;
-	size_t			i;
+	int		sign;
+	size_t	result;
 
-	altstr = (unsigned char *)str;
-	i = 0;
-	while (n > i)
+	sign = 1;
+	result = 0;
+	while (*str == ' ' || *str == '\f' || *str == '\n'
+		|| *str == '\r' || *str == '\t' || *str == '\v')
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
 	{
-		if (altstr[i] == (unsigned char)c)
-		{
-			return (&altstr[i]);
-		}
-		i++;
+		result = result * 10 + (*str - '0');
+		str++;
 	}
-	return (NULL);
+	return (result * sign);
 }
