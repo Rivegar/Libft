@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:15:24 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/22 15:50:30 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:24:46 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,10 @@ char	**ft_split(char const *s, char c)
 	size_t	w_len;
 	size_t	i;
 
-	split = NULL;
-	if (split)
-		ft_free_split(split);
+	if (!s)
+		return (NULL);
 	split = (char **)malloc(sizeof(char *) * (ft_wordcounter(s, c) + 1));
-	if (!s || !split)
+	if (!split)
 		return (NULL);
 	i = 0;
 	while (*s)
@@ -68,6 +67,11 @@ char	**ft_split(char const *s, char c)
 			else
 				w_len = ft_strchr(s, c) - s;
 			split[i++] = ft_substr(s, 0, w_len);
+			if (!split[i - 1])
+			{
+				ft_free_split(split);
+				return (NULL);
+			}
 			s += w_len;
 		}
 	}
