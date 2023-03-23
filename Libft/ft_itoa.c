@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:26:01 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/23 14:40:10 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:42:39 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,27 @@ static int	ft_intlen(long long n)
 char	*ft_itoa(int n)
 {
 	long long	nlong;
-	int			len;
 	char		*str;
-	int			sign;
+	int			len;
 
-	sign = 1;
 	nlong = n;
-	if (nlong < 0)
+	if (n < 0)
 	{
-		sign = -1;
-		nlong = -nlong;
+		nlong = -(long long)n;
+		len = ft_intlen(nlong) + 1;
 	}
-	len = ft_intlen(nlong);
-	str = (char *)malloc(len + 1 + (sign == -1));
+	else
+		len = ft_intlen(nlong);
+	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	if (sign == -1)
-		*str = '-';
-	str += len + (sign == -1);
-	*str = '\0';
+	str[len] = '\0';
 	while (len--)
 	{
-		*(--str) = '0' + (nlong % 10);
+		str[len] = nlong % 10 + '0';
 		nlong /= 10;
 	}
-	return (str - (sign == -1));
+	if (n < 0)
+		str[0] = '-';
+	return (str);
 }
