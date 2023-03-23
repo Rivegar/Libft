@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:15:24 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/22 16:24:46 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:31:32 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_wordcounter(char const *s, char c)
 	return (wcount);
 }
 
-void	ft_free_split(char **split)
+static char	**ft_free_split(char **split)
 {
 	size_t	i;
 
@@ -42,6 +42,7 @@ void	ft_free_split(char **split)
 		i++;
 	}
 	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -50,10 +51,8 @@ char	**ft_split(char const *s, char c)
 	size_t	w_len;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	split = (char **)malloc(sizeof(char *) * (ft_wordcounter(s, c) + 1));
-	if (!split)
+	if (!s || !split)
 		return (NULL);
 	i = 0;
 	while (*s)
@@ -62,16 +61,12 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
+			w_len = ft_strchr(s, c) - s;
 			if (!ft_strchr(s, c))
 				w_len = ft_strlen(s);
-			else
-				w_len = ft_strchr(s, c) - s;
 			split[i++] = ft_substr(s, 0, w_len);
 			if (!split[i - 1])
-			{
-				ft_free_split(split);
-				return (NULL);
-			}
+				return (ft_free_split(split));
 			s += w_len;
 		}
 	}
