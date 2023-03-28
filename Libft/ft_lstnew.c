@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:19:48 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/27 09:35:15 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/03/28 14:51:47 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*alt;
+	t_list	*new;
 
-	alt = (t_list *)malloc(sizeof(*alt));
-	if (!alt)
+	new = (t_list *)malloc(sizeof(*new));
+	if (!new)
 		return (NULL);
-	alt->content = content;
-	alt->next = NULL;
-	return (alt);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
