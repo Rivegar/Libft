@@ -6,7 +6,7 @@
 #    By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 10:01:21 by arivero-          #+#    #+#              #
-#    Updated: 2023/03/28 09:33:40 by arivero-         ###   ########.fr        #
+#    Updated: 2023/03/31 12:33:34 by arivero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJ) $(BONUSOBJ)
-	$(LIB) $(NAME) $(OBJ) $(BONUSOBJ)
+bonus: $(BONUSOBJ) $(INCLUDE)
+	$(LIB) $(NAME) $(BONUSOBJ)
 
 .PHONY: all clean fclean re bonus
