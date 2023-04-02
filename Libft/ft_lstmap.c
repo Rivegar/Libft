@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 09:31:02 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/31 12:52:39 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:08:16 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
-

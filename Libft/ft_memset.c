@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 09:23:47 by arivero-          #+#    #+#             */
-/*   Updated: 2023/03/31 09:32:18 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:01:58 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	*ft_memset(void *str, int c, size_t len)
 	return (str);
 }
 
-int main()
+/*int main()
 {
 	char str[50] = "Hola";
-	printf("\nBefore memset(): %s\n", str);
+	printf("\nAntes de memset(): %s\n", str);
 	ft_memset(str + 2, 'x', 2);
-	printf("After memset():  %s", str);
+	printf("Después de memset):  %s", str);
 	return (0);
-}
+}*/
