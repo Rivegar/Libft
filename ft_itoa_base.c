@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 10:04:41 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:28:08 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ char	*ft_itoa_base(size_t number, char *base)
 {
 	size_t	num;
 	size_t	len;
-	char	*hex;
+	char	*str;
 
 	len = 0;
 	num = number;
-	while (num)
+	while (number)
 	{
 		len++;
-		num = num / 16;
+		number /= 16;
 	}
 	if (num == 0)
 		len++;
-	hex = malloc(sizeof(char) * (len + 1));
-	if (!hex)
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	hex[len] = '\0';
-	while (nbr != 0 || len)
+	str[len] = '\0';
+	while (num != 0 || len)
 	{
-		hex[--len] = base[num % 16];
+		str[--len] = base[num % 16];
 		num /= 16;
 	}
-	return (hex);
+	return (str);
 }
