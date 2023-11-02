@@ -6,16 +6,16 @@
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 10:28:08 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:59:30 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(size_t number, char *base)
+char	*ft_itoa_base(unsigned long number, char *base)
 {
-	size_t	num;
-	size_t	len;
+	unsigned long	num;
+	unsigned long	len;
 	char	*str;
 
 	len = 0;
