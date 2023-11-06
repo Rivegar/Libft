@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 11:32:15 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:42:48 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_itoa_base(unsigned long number, char *base)
 {
 	unsigned long	num;
 	unsigned long	len;
-	char	*str;
+	char			*str;
 
 	len = 0;
 	num = number;
