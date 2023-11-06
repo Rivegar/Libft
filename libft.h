@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:04:47 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/06 10:45:04 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/06 10:54:42 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_putnbr(int n);
+int		ft_putunbr(long n);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
