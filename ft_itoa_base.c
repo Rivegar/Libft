@@ -6,13 +6,13 @@
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/06 10:42:48 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:30:20 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(unsigned long number, char *base)
+char	*ft_itoa_base(unsigned long number, char *base, int baseformat)
 {
 	unsigned long	num;
 	unsigned long	len;
@@ -23,7 +23,7 @@ char	*ft_itoa_base(unsigned long number, char *base)
 	while (number)
 	{
 		len++;
-		number /= 16;
+		number /= baseformat;
 	}
 	if (num == 0)
 		len++;
@@ -33,8 +33,8 @@ char	*ft_itoa_base(unsigned long number, char *base)
 	str[len] = '\0';
 	while (num != 0 || len)
 	{
-		str[--len] = base[num % 16];
-		num /= 16;
+		str[--len] = base[num % baseformat];
+		num /= baseformat;
 	}
 	return (str);
 }
